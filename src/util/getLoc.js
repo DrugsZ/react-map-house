@@ -10,6 +10,8 @@ let createLocWatch = () => {
 	}
 };
 
+createLocWatch();
+
 export let getMapScript = (ak) => {
 	if(!global.AMap){
 		global.AMap = {}
@@ -29,7 +31,6 @@ export let getMapScript = (ak) => {
 	}
 }
 
-createLocWatch();
 
 export let nowLoc = () => position;
 // export default {
