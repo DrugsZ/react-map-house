@@ -3,7 +3,10 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    // "extends": [
+    //   //  "eslint:recommended",
+    //     'plugin:react/recommended'
+    // ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -15,17 +18,17 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "space"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+        // "indent": [
+        //     "error",
+        //     "tab"
+        // ],
+        // "linebreak-style": [
+        //     "error",
+        //     "windows"
+        // ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "semi": [
             "error",
