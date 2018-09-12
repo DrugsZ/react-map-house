@@ -15,15 +15,14 @@ export default class AMap extends React.Component {
 	}
 
 	componentDidMount() {
-		getMapScript('139470ef9125625ce6bfdfe200dd526c')
+		getMapScript(this.props.mapKey)
 			.then(mapCtr => {
-        console.log(mapCtr);
-				this._init(mapCtr,this.refs.map);
+				this.props._mapReady(this._init(mapCtr,this.refs.map),mapCtr);
 			});
 	}
 	render() {
 		return (
-			<div ref='map' style={{'height':this.props.style.height}}></div>
+			<div ref='map' style={this.props.style}></div>
 		);
 	}
 }
