@@ -26,6 +26,11 @@ module.exports = {
         //     "error",
         //     "windows"
         // ],
+        "keyword-spacing": [
+          "error", 
+          { "after": true },
+          { "before": true }
+        ],
         "quotes": [
             "error",
             "single"
