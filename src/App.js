@@ -21,6 +21,17 @@ class App extends Component {
     nowLoc();
   }
 
+  getCity(){
+    let {AMap,map} = this.state;
+
+    map.plugin('AMap.CitySearch',() => {
+      let searchCityObj = new AMap.CitySearch();
+
+      searchCityObj.getLocalCity( (status,result) => {
+        console.log(status,result);
+      });
+    });
+  }
   /**
    * @地图初始化成功后的回调函数
    * 
@@ -28,27 +39,40 @@ class App extends Component {
    * @param [Object] AMap 高德地图SDK 
    */ 
   _mapInit(map,AMap) {
-    console.log(map,AMap);
-    const { latitude,longitude } = nowLoc().coords;
+      // map.plugin('AMap.Geolocation',() => {
+      //     let geolocation  = AMap.Geolocation();
+      //     AMap.event.addListener(geolocation, 'complete', onComplete);
+      //     AMap.event.addListener(geolocation, 'error', onError);
 
-    let gps = [longitude,latitude];
+      //     map.addControl(geolocation);
+      //     geolocation.getCurrentPosition();
 
-    AMap.convertFrom(gps, 'gps', (status, result) => {
-      if(status){
-        console.log(status);
-      }
-      if (result.info === 'ok') {
-        let lnglats = result.locations[0]; // Array.<LngLat>
-        this.setState({
-          lnglats
-        });
-        this.addCenter();
-      }
-    });
+      //     let onComplete = (data) => console.log(data);
+      //     let onError = (data) => console.log(data);
+      // });
+    // console.log(map,AMap);
+    // const { latitude,longitude } = nowLoc().coords;
+
+    // let gps = [longitude,latitude];
+
+    // AMap.convertFrom(gps, 'gps', (status, result) => {
+    //   if(status){
+    //     console.log(status);
+    //   }
+    //   if (result.info === 'ok') {
+    //     let lnglats = result.locations[0]; // Array.<LngLat>
+    //     this.setState({
+    //       lnglats
+    //     });
+    //     this.addCenter();
+    //   }
+    // });
     this.setState({
       map,
       AMap,
     });
+
+    this.getCity();
   }
 
   addCenter() {
