@@ -18,18 +18,17 @@ module.exports = {
         "react"
     ],
     "rules": {
-        // "indent": [
-        //     "error",
-        //     "tab"
-        // ],
-        // "linebreak-style": [
-        //     "error",
-        //     "windows"
-        // ],
+        "indent": [
+            "error",
+            "tab"
+        ],    
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
         "keyword-spacing": [
           "error", 
-          { "after": true },
-          { "before": true }
+          {"before": true, "after": true}
         ],
         "quotes": [
             "error",
