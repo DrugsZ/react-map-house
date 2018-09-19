@@ -39,17 +39,17 @@ class App extends Component {
    * @param [Object] AMap 高德地图SDK 
    */ 
   _mapInit(map,AMap) {
-      // map.plugin('AMap.Geolocation',() => {
-      //     let geolocation  = AMap.Geolocation();
-      //     AMap.event.addListener(geolocation, 'complete', onComplete);
-      //     AMap.event.addListener(geolocation, 'error', onError);
+    // map.plugin('AMap.Geolocation',() => {
+    //     let geolocation  = AMap.Geolocation();
+    //     AMap.event.addListener(geolocation, 'complete', onComplete);
+    //     AMap.event.addListener(geolocation, 'error', onError);
 
-      //     map.addControl(geolocation);
-      //     geolocation.getCurrentPosition();
+    //     map.addControl(geolocation);
+    //     geolocation.getCurrentPosition();
 
-      //     let onComplete = (data) => console.log(data);
-      //     let onError = (data) => console.log(data);
-      // });
+    //     let onComplete = (data) => console.log(data);
+    //     let onError = (data) => console.log(data);
+    // });
     // console.log(map,AMap);
     // const { latitude,longitude } = nowLoc().coords;
 

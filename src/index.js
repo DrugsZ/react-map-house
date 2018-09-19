@@ -6,14 +6,14 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 if (module.hot) {
-    module.hot.accept('./App', () => {
-      const NextApp = require('./App').default; // eslint-disable-line global-require
-      ReactDOM.render(
-        <App>
-          <NextApp />
-        </App>,
-        document.getElementById('root')
-      );
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default; // eslint-disable-line global-require
+    ReactDOM.render(
+      <App>
+        <NextApp />
+      </App>,
+      document.getElementById('root')
+    );
   });
 }
 
