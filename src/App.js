@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import AMap from './map';
 import { nowLoc } from './util/getLoc';
+import MapContext from './context';
 
 
 class App extends Component {
@@ -74,9 +75,6 @@ class App extends Component {
 }
 
 
-const MapContext = React.createContext({
-  map:{}
-});
 
 // App.childContextTypes = {
 //   map: React.PropTypes.object;
