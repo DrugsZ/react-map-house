@@ -74,7 +74,7 @@ class App extends Component {
 }
 
 
-const MapContext = createContext({
+const MapContext = React.createContext({
   map:{}
 });
 
