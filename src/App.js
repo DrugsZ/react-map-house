@@ -15,6 +15,7 @@ class App extends Component {
     };
     this._mapInit = this._mapInit.bind(this);
   }
+
   componentDidMount(){
     window._$r = this;
     window.nowLoc = nowLoc;
@@ -34,39 +35,11 @@ class App extends Component {
   }
   /**
    * @地图初始化成功后的回调函数
-   * 
+   *
    * @param[object] map 地图实例
-   * @param [Object] AMap 高德地图SDK 
-   */ 
+   * @param [Object] AMap 高德地图SDK
+   */
   _mapInit(map,AMap) {
-    // map.plugin('AMap.Geolocation',() => {
-    //     let geolocation  = AMap.Geolocation();
-    //     AMap.event.addListener(geolocation, 'complete', onComplete);
-    //     AMap.event.addListener(geolocation, 'error', onError);
-
-    //     map.addControl(geolocation);
-    //     geolocation.getCurrentPosition();
-
-    //     let onComplete = (data) => console.log(data);
-    //     let onError = (data) => console.log(data);
-    // });
-    // console.log(map,AMap);
-    // const { latitude,longitude } = nowLoc().coords;
-
-    // let gps = [longitude,latitude];
-
-    // AMap.convertFrom(gps, 'gps', (status, result) => {
-    //   if(status){
-    //     console.log(status);
-    //   }
-    //   if (result.info === 'ok') {
-    //     let lnglats = result.locations[0]; // Array.<LngLat>
-    //     this.setState({
-    //       lnglats
-    //     });
-    //     this.addCenter();
-    //   }
-    // });
     this.setState({
       map,
       AMap,
@@ -91,11 +64,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <AMap style={{'height':'100vh'}} _mapReady={this._mapInit} mapKey='ab84a393cc50b269fa831a6e09652805'></AMap>
-      </div>
+      <MapContext.Provider value={{map:this.state.map}}>
+        <div className="App">
+          <AMap style={{'height':'100vh'}} _mapReady={this._mapInit} mapKey='ab84a393cc50b269fa831a6e09652805'></AMap>
+        </div>
+      </MapContext.Provider>
     );
   }
 }
+
+
+const MapContext = createContext({
+  map:{}
+});
+
+// App.childContextTypes = {
+//   map: React.PropTypes.object;
+// }
+
 
 export default App;
