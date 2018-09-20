@@ -10,7 +10,7 @@ export default class AMap extends React.Component {
   }
 
   _init(AMap,el) {
-    const map = new AMap.Map(el);;
+    const map = new AMap.Map(el);
     return map;
   }
 
