@@ -13,6 +13,7 @@ class App extends Component {
       AMap:{},
       lnglats:{},
       cneterMarker:{},
+      isHasMap:false,
     };
     this._mapInit = this._mapInit.bind(this);
   }
@@ -42,6 +43,7 @@ class App extends Component {
    */
   _mapInit(map,AMap) {
     this.setState({
+      isHasMap:true,
       map,
       AMap,
     });
@@ -67,7 +69,11 @@ class App extends Component {
     return (
       <MapContext.Provider value={{map:this.state.map}}>
         <div className="App">
-          <AMap style={{'height':'100vh'}} _mapReady={this._mapInit} mapKey='ab84a393cc50b269fa831a6e09652805'></AMap>
+          <div style={{'height':'100%','width':'10%'}}>
+          </div>
+          <div  style={{'height':'100%'}}>
+            <AMap style={{'height':'100%'}} _mapReady={this._mapInit} mapKey='ab84a393cc50b269fa831a6e09652805'></AMap>
+          </div>
         </div>
       </MapContext.Provider>
     );
@@ -76,9 +82,6 @@ class App extends Component {
 
 
 
-// App.childContextTypes = {
-//   map: React.PropTypes.object;
-// }
 
 
 export default App;
