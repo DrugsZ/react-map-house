@@ -1,6 +1,5 @@
 import React from 'react';
 import { getMapScript } from '../util/getLoc';
-import MapContext from '../context';
 
 export default class AMap extends React.Component {
   constructor(props) {
@@ -24,11 +23,7 @@ export default class AMap extends React.Component {
   }
   render() {
     return (
-      <MapContext.Consumer>
-        {context=>(
-          <div  ref={(div) => { this.mapEl = div; }} map={context.map} style={this.props.style}></div>
-        )}
-      </MapContext.Consumer>
+      <div  ref={(div) => { this.mapEl = div; }} style={this.props.style}></div>
     );
   }
 }
