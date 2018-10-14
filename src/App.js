@@ -11,8 +11,7 @@ class App extends Component {
     this.state = {
       map:{},
       AMap:{},
-      lnglats:{},
-      cneterMarker:{},
+      centerMarker:{},
       isHasMap:false,
     };
     this._mapInit = this._mapInit.bind(this);
